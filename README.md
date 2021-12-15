@@ -20,4 +20,4 @@
 - Syncfusion WinForms (UI framework)
 
 ### What Is This?
-InlineSkatesManager is a WinForms application which takes care of your business matters. It is a practise app in which you can add/remove/change customers and your products.
+InlineSkatesManager is a WinForms application which takes care of your business matters. It is a practise app in which you can add/remove/edit customers and your products.
