@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using InlineSkatesApp.Models;
 using Jot;
 using Microsoft.Extensions.Configuration;
+using Syncfusion.Data.Extensions;
 using Syncfusion.WinForms.Controls;
 using Syncfusion.WinForms.DataGrid;
 using DataRow = System.Data.DataRow;
@@ -35,6 +36,7 @@ namespace InlineSkatesApp
 
                 .Property(p => p.checkBoxAdvCaseSensitiveProducts.Checked, false, "Search for case sensitive products")
                 .Property(p => p.textBoxExtProductName.Text, string.Empty, "Product name field")
+                .Property(p => p.sfNumericTextBoxProductPrice.Value, 1, "Product price field")
 
                 .PersistOn(nameof(Closed));
             tracker.Track(this);
@@ -53,8 +55,8 @@ namespace InlineSkatesApp
             Text = $"Inline Skates Manager | {_appSettings.Version}";
 
             //DB Actions
-            //PopulateCustomers();
-            PopulateProducts();
+            //UpdateCustomerItems();
+            UpdateProductItems();
 
             //Customers Tab
             //DataGrid
@@ -103,7 +105,8 @@ namespace InlineSkatesApp
         }
         #endregion
 
-        private void PopulateCustomers()
+        //Customers Tab
+        private void UpdateCustomerItems()
         {
             //var customersTable = customersTableAdapter1.GetData();
             //var ordersTable = ordersTableAdapter1.GetData();
@@ -113,21 +116,6 @@ namespace InlineSkatesApp
             //}
         }
 
-        private void PopulateProducts()
-        {
-            var productsTable = productsTableAdapter1.GetData();
-            foreach (DataRow productsTableRow in productsTable.Rows)
-            {
-                ProductItems.Add(new ProductModel()
-                {
-                    ProductId = (int)productsTableRow.ItemArray[0],
-                    ProductName = productsTableRow.ItemArray[1].ToString(),
-                    ProductPrice = (decimal)productsTableRow.ItemArray[2]
-                });
-            }
-        }
-
-        //Customers Tab
         public ObservableCollection<CustomerModel> CustomerItems { get; set; } = new ObservableCollection<CustomerModel>();
 
         private void textBoxExtSearchCustomers_TextChanged(object sender, EventArgs e) => sfDataGridCustomers.SearchController.Search(textBoxExtSearchCustomers.Text);
@@ -172,6 +160,20 @@ namespace InlineSkatesApp
         }
 
         //Products Tab
+        private void UpdateProductItems()
+        {
+            var productsTable = productsTableAdapter1.GetData();
+            foreach (DataRow productsTableRow in productsTable.Rows)
+            {
+                ProductItems.Add(new ProductModel()
+                {
+                    ProductId = (int)productsTableRow.ItemArray[0],
+                    ProductName = productsTableRow.ItemArray[1].ToString(),
+                    ProductPrice = (decimal)productsTableRow.ItemArray[2]
+                });
+            }
+        }
+
         public ObservableCollection<ProductModel> ProductItems { get; set; } = new ObservableCollection<ProductModel>();
 
         private void textBoxExtSearchProducts_TextChanged(object sender, EventArgs e) => sfDataGridProducts.SearchController.Search(textBoxExtSearchProducts.Text);
@@ -179,31 +181,48 @@ namespace InlineSkatesApp
 
         private void OnDeleteProductClicked(object sender, EventArgs e)
         {
-            ProductItems.Remove(sfDataGridProducts.SelectedItem as ProductModel);
-            //Update db
+            var items = sfDataGridProducts.SelectedItems.ToList<ProductModel>().ToList();
+            foreach (var item in items)
+            {
+                productsTableAdapter1.DeleteProduct(item.ProductId);
+                ProductItems.Remove(item);
+            }
         }
 
         private void sfDataGridProducts_CurrentCellEndEdit(object sender, Syncfusion.WinForms.DataGrid.Events.CurrentCellEndEditEventArgs e)
         {
-            var sfDataGrid = sender as SfDataGrid;
-            var item = sfDataGrid.SelectedItem as ProductModel;
+            var item = sfDataGridProducts.CurrentItem as ProductModel;
 
-            //Get item from db, check if different
+            var productsTableItem = productsTableAdapter1.GetProduct(item.ProductId);
+            var dbProductName = productsTableItem.Rows[0].ItemArray[1].ToString();
+            var dbProductPrice = (decimal)productsTableItem.Rows[0].ItemArray[2];
+
+            if (item.ProductName != dbProductName || item.ProductPrice != dbProductPrice)
+                productsTableAdapter1.Update(item.ProductName, item.ProductPrice, item.ProductId, 
+                    dbProductName, dbProductPrice);
         }
 
         private void textBoxExtProductName_TextChanged(object sender, EventArgs e) => sfButtonProduct.Enabled = !string.IsNullOrWhiteSpace(textBoxExtProductName.Text);
 
         private void sfButtonAddDummyProducts_Click(object sender, EventArgs e)
         {
-            //Get latest item from db then increment customerId
+            var productsTable = productsTableAdapter1.GetData();
+            var lastItem = productsTable.Rows[productsTable.Rows.Count - 1];
+            int correctId = (int)lastItem.ItemArray[0] + 1;
 
             var random = new Random();
-            for (int i = 0; i < 3; i++)
+            for (int i = correctId; i < correctId + 5; i++)
             {
+                string productName = _appSettings.DummyData.Products[random.Next(_appSettings.DummyData.Products.Count)];
+                decimal productPrice = random.Next(1, 5_000);
+
+                productsTableAdapter1.InsertProduct(productName, productPrice);
+
                 ProductItems.Add(new ProductModel()
                 {
                     ProductId = i,
-                    ProductName = _appSettings.DummyData.Products[random.Next(_appSettings.DummyData.Products.Count)]
+                    ProductName = productName,
+                    ProductPrice = productPrice
                 });
             }
         }
@@ -215,7 +234,7 @@ namespace InlineSkatesApp
             {
                 //var item = productsTableAdapter1.IsProductAlreadyPresent(productItem.ProductId);
 
-                MessageBox.Show($"The item: \"{textBoxExtProductName.Text}\" is already in the database!", "Notice",
+                MessageBox.Show($"The product: \"{textBoxExtProductName.Text}\" is already in the database!", "Notice",
                     MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             else

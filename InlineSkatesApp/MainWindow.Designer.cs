@@ -222,7 +222,7 @@ namespace InlineSkatesApp
             // textBoxExtSearchCustomers
             // 
             this.textBoxExtSearchCustomers.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxExtSearchCustomers.BeforeTouchSize = new System.Drawing.Size(324, 23);
+            this.textBoxExtSearchCustomers.BeforeTouchSize = new System.Drawing.Size(411, 23);
             this.textBoxExtSearchCustomers.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.textBoxExtSearchCustomers.Location = new System.Drawing.Point(54, 4);
             this.textBoxExtSearchCustomers.Name = "textBoxExtSearchCustomers";
@@ -316,7 +316,7 @@ namespace InlineSkatesApp
             // textBoxExtCustomerName
             // 
             this.textBoxExtCustomerName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxExtCustomerName.BeforeTouchSize = new System.Drawing.Size(324, 23);
+            this.textBoxExtCustomerName.BeforeTouchSize = new System.Drawing.Size(411, 23);
             this.textBoxExtCustomerName.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.textBoxExtCustomerName.Location = new System.Drawing.Point(106, 3);
             this.textBoxExtCustomerName.Name = "textBoxExtCustomerName";
@@ -364,9 +364,9 @@ namespace InlineSkatesApp
             // tableLayoutPanel7
             // 
             this.tableLayoutPanel7.ColumnCount = 3;
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.tableLayoutPanel7.Controls.Add(this.groupBox4, 1, 0);
             this.tableLayoutPanel7.Controls.Add(this.groupBox5, 1, 1);
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -383,9 +383,9 @@ namespace InlineSkatesApp
             this.groupBox4.Controls.Add(this.tableLayoutPanel8);
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.groupBox4.Location = new System.Drawing.Point(177, 3);
+            this.groupBox4.Location = new System.Drawing.Point(133, 3);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(516, 357);
+            this.groupBox4.Size = new System.Drawing.Size(603, 357);
             this.groupBox4.TabIndex = 0;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Products ";
@@ -402,7 +402,7 @@ namespace InlineSkatesApp
             this.tableLayoutPanel8.RowCount = 2;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(510, 335);
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(597, 335);
             this.tableLayoutPanel8.TabIndex = 0;
             // 
             // sfDataGridProducts
@@ -417,7 +417,7 @@ namespace InlineSkatesApp
             this.sfDataGridProducts.Name = "sfDataGridProducts";
             this.sfDataGridProducts.SelectionMode = Syncfusion.WinForms.DataGrid.Enums.GridSelectionMode.Multiple;
             this.sfDataGridProducts.SerializationController = null;
-            this.sfDataGridProducts.Size = new System.Drawing.Size(504, 291);
+            this.sfDataGridProducts.Size = new System.Drawing.Size(591, 291);
             this.sfDataGridProducts.TabIndex = 5;
             this.sfDataGridProducts.Text = "sfDataGrid1";
             this.sfDataGridProducts.CurrentCellEndEdit += new Syncfusion.WinForms.DataGrid.Events.CurrentCellEndEditEventHandler(this.sfDataGridProducts_CurrentCellEndEdit);
@@ -436,17 +436,17 @@ namespace InlineSkatesApp
             this.tableLayoutPanel9.Name = "tableLayoutPanel9";
             this.tableLayoutPanel9.RowCount = 1;
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(504, 32);
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(591, 32);
             this.tableLayoutPanel9.TabIndex = 4;
             // 
             // textBoxExtSearchProducts
             // 
             this.textBoxExtSearchProducts.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxExtSearchProducts.BeforeTouchSize = new System.Drawing.Size(324, 23);
+            this.textBoxExtSearchProducts.BeforeTouchSize = new System.Drawing.Size(411, 23);
             this.textBoxExtSearchProducts.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.textBoxExtSearchProducts.Location = new System.Drawing.Point(54, 4);
             this.textBoxExtSearchProducts.Name = "textBoxExtSearchProducts";
-            this.textBoxExtSearchProducts.Size = new System.Drawing.Size(337, 23);
+            this.textBoxExtSearchProducts.Size = new System.Drawing.Size(424, 23);
             this.textBoxExtSearchProducts.TabIndex = 2;
             this.sfToolTip1.SetToolTip(this.textBoxExtSearchProducts, "Enter a word that you would like to search for");
             this.textBoxExtSearchProducts.TextChanged += new System.EventHandler(this.textBoxExtSearchProducts_TextChanged);
@@ -466,7 +466,7 @@ namespace InlineSkatesApp
             this.checkBoxAdvCaseSensitiveProducts.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBoxAdvCaseSensitiveProducts.BeforeTouchSize = new System.Drawing.Size(104, 18);
             this.checkBoxAdvCaseSensitiveProducts.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.checkBoxAdvCaseSensitiveProducts.Location = new System.Drawing.Point(397, 7);
+            this.checkBoxAdvCaseSensitiveProducts.Location = new System.Drawing.Point(484, 7);
             this.checkBoxAdvCaseSensitiveProducts.Name = "checkBoxAdvCaseSensitiveProducts";
             this.checkBoxAdvCaseSensitiveProducts.Size = new System.Drawing.Size(104, 18);
             this.checkBoxAdvCaseSensitiveProducts.TabIndex = 18;
@@ -479,9 +479,9 @@ namespace InlineSkatesApp
             this.groupBox5.Controls.Add(this.tableLayoutPanel10);
             this.groupBox5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.groupBox5.Location = new System.Drawing.Point(177, 366);
+            this.groupBox5.Location = new System.Drawing.Point(133, 366);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(516, 124);
+            this.groupBox5.Size = new System.Drawing.Size(603, 124);
             this.groupBox5.TabIndex = 1;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Product Settings";
@@ -505,7 +505,7 @@ namespace InlineSkatesApp
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel10.Size = new System.Drawing.Size(510, 102);
+            this.tableLayoutPanel10.Size = new System.Drawing.Size(597, 102);
             this.tableLayoutPanel10.TabIndex = 0;
             // 
             // autoLabel6
@@ -537,7 +537,7 @@ namespace InlineSkatesApp
             this.sfNumericTextBoxProductPrice.Location = new System.Drawing.Point(96, 32);
             this.sfNumericTextBoxProductPrice.MinValue = 1D;
             this.sfNumericTextBoxProductPrice.Name = "sfNumericTextBoxProductPrice";
-            this.sfNumericTextBoxProductPrice.Size = new System.Drawing.Size(324, 23);
+            this.sfNumericTextBoxProductPrice.Size = new System.Drawing.Size(411, 23);
             this.sfNumericTextBoxProductPrice.Style.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.sfNumericTextBoxProductPrice.TabIndex = 2;
             this.sfNumericTextBoxProductPrice.Text = "$1.00";
@@ -547,11 +547,11 @@ namespace InlineSkatesApp
             // textBoxExtProductName
             // 
             this.textBoxExtProductName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxExtProductName.BeforeTouchSize = new System.Drawing.Size(324, 23);
+            this.textBoxExtProductName.BeforeTouchSize = new System.Drawing.Size(411, 23);
             this.textBoxExtProductName.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.textBoxExtProductName.Location = new System.Drawing.Point(96, 3);
             this.textBoxExtProductName.Name = "textBoxExtProductName";
-            this.textBoxExtProductName.Size = new System.Drawing.Size(324, 23);
+            this.textBoxExtProductName.Size = new System.Drawing.Size(411, 23);
             this.textBoxExtProductName.TabIndex = 11;
             this.sfToolTip1.SetToolTip(this.textBoxExtProductName, "Enter product\'s name");
             this.textBoxExtProductName.TextChanged += new System.EventHandler(this.textBoxExtProductName_TextChanged);
@@ -561,7 +561,7 @@ namespace InlineSkatesApp
             this.sfButtonProduct.AccessibleName = "Button";
             this.sfButtonProduct.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.sfButtonProduct.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
-            this.sfButtonProduct.Location = new System.Drawing.Point(426, 17);
+            this.sfButtonProduct.Location = new System.Drawing.Point(513, 17);
             this.sfButtonProduct.Name = "sfButtonProduct";
             this.tableLayoutPanel10.SetRowSpan(this.sfButtonProduct, 2);
             this.sfButtonProduct.Size = new System.Drawing.Size(81, 24);
@@ -576,7 +576,7 @@ namespace InlineSkatesApp
             this.sfButtonDummyProducts.AccessibleName = "Button";
             this.sfButtonDummyProducts.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.sfButtonDummyProducts.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
-            this.sfButtonDummyProducts.Location = new System.Drawing.Point(191, 68);
+            this.sfButtonDummyProducts.Location = new System.Drawing.Point(234, 68);
             this.sfButtonDummyProducts.Name = "sfButtonDummyProducts";
             this.sfButtonDummyProducts.Size = new System.Drawing.Size(134, 24);
             this.sfButtonDummyProducts.TabIndex = 14;
@@ -642,11 +642,11 @@ namespace InlineSkatesApp
             // sfButtonOpenSettings
             // 
             this.sfButtonOpenSettings.AccessibleName = "Button";
-            this.sfButtonOpenSettings.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.sfButtonOpenSettings.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.sfButtonOpenSettings.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
-            this.sfButtonOpenSettings.Location = new System.Drawing.Point(88, 3);
+            this.sfButtonOpenSettings.Location = new System.Drawing.Point(82, 97);
             this.sfButtonOpenSettings.Name = "sfButtonOpenSettings";
-            this.sfButtonOpenSettings.Size = new System.Drawing.Size(102, 24);
+            this.sfButtonOpenSettings.Size = new System.Drawing.Size(113, 24);
             this.sfButtonOpenSettings.TabIndex = 0;
             this.sfButtonOpenSettings.Text = "Open App Settings";
             this.sfToolTip1.SetToolTip(this.sfButtonOpenSettings, "Open application settings");
