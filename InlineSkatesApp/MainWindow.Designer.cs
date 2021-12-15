@@ -50,7 +50,9 @@ namespace InlineSkatesApp
             this.autoLabel2 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
             this.textBoxExtCustomerName = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             this.autoLabel1 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
+            this.sfButtonGenerateInvoice = new Syncfusion.WinForms.Controls.SfButton();
             this.sfButtonCustomer = new Syncfusion.WinForms.Controls.SfButton();
+            this.sfButtonOpenFolder = new Syncfusion.WinForms.Controls.SfButton();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -76,8 +78,8 @@ namespace InlineSkatesApp
             this.sfToolTip1 = new Syncfusion.Windows.Forms.SfToolTip(this.components);
             this.productsTableAdapter1 = new InlineSkatesApp.Db.DbMapTableAdapters.ProductsTableAdapter();
             this.ordersTableAdapter1 = new InlineSkatesApp.Db.DbMapTableAdapters.OrdersTableAdapter();
-            this.invoiceTableAdapter1 = new InlineSkatesApp.Db.DbMapTableAdapters.InvoiceTableAdapter();
             this.customersTableAdapter1 = new InlineSkatesApp.Db.DbMapTableAdapters.CustomersTableAdapter();
+            this.invoiceTableAdapter1 = new InlineSkatesApp.Db.DbMapTableAdapters.InvoiceTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.comboDropDownProduct)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -111,12 +113,12 @@ namespace InlineSkatesApp
             // comboDropDownProduct
             // 
             this.comboDropDownProduct.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboDropDownProduct.BeforeTouchSize = new System.Drawing.Size(623, 23);
+            this.comboDropDownProduct.BeforeTouchSize = new System.Drawing.Size(513, 23);
             this.comboDropDownProduct.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboDropDownProduct.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.comboDropDownProduct.Location = new System.Drawing.Point(106, 32);
+            this.comboDropDownProduct.Location = new System.Drawing.Point(106, 36);
             this.comboDropDownProduct.Name = "comboDropDownProduct";
-            this.comboDropDownProduct.Size = new System.Drawing.Size(623, 23);
+            this.comboDropDownProduct.Size = new System.Drawing.Size(513, 23);
             this.comboDropDownProduct.TabIndex = 16;
             this.sfToolTip1.SetToolTip(this.comboDropDownProduct, "Select appropriate product to sell");
             // 
@@ -196,6 +198,7 @@ namespace InlineSkatesApp
             this.sfDataGridCustomers.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.sfDataGridCustomers.Location = new System.Drawing.Point(3, 41);
             this.sfDataGridCustomers.Name = "sfDataGridCustomers";
+            this.sfDataGridCustomers.SelectionMode = Syncfusion.WinForms.DataGrid.Enums.GridSelectionMode.Extended;
             this.sfDataGridCustomers.SerializationController = null;
             this.sfDataGridCustomers.Size = new System.Drawing.Size(852, 291);
             this.sfDataGridCustomers.TabIndex = 1;
@@ -268,16 +271,19 @@ namespace InlineSkatesApp
             // 
             // tableLayoutPanel2
             // 
-            this.tableLayoutPanel2.ColumnCount = 3;
+            this.tableLayoutPanel2.ColumnCount = 4;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel2.Controls.Add(this.sfButtonDummy, 1, 2);
             this.tableLayoutPanel2.Controls.Add(this.autoLabel2, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.textBoxExtCustomerName, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.comboDropDownProduct, 1, 1);
             this.tableLayoutPanel2.Controls.Add(this.autoLabel1, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.sfButtonGenerateInvoice, 2, 1);
             this.tableLayoutPanel2.Controls.Add(this.sfButtonCustomer, 2, 0);
+            this.tableLayoutPanel2.Controls.Add(this.sfButtonOpenFolder, 3, 1);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 19);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -285,7 +291,6 @@ namespace InlineSkatesApp
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(858, 102);
             this.tableLayoutPanel2.TabIndex = 3;
             // 
@@ -294,20 +299,20 @@ namespace InlineSkatesApp
             this.sfButtonDummy.AccessibleName = "Button";
             this.sfButtonDummy.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.sfButtonDummy.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
-            this.sfButtonDummy.Location = new System.Drawing.Point(345, 65);
+            this.sfButtonDummy.Location = new System.Drawing.Point(290, 69);
             this.sfButtonDummy.Name = "sfButtonDummy";
             this.sfButtonDummy.Size = new System.Drawing.Size(144, 27);
             this.sfButtonDummy.TabIndex = 2;
             this.sfButtonDummy.Text = "Add Dummy Customers";
             this.sfToolTip1.SetToolTip(this.sfButtonDummy, "Add dummy data to the Customers above");
             this.sfButtonDummy.UseVisualStyleBackColor = true;
-            this.sfButtonDummy.Click += new System.EventHandler(this.sfButtonAddDummy_Click);
+            this.sfButtonDummy.Click += new System.EventHandler(this.sfButtonAddDummyCustomers_Click);
             // 
             // autoLabel2
             // 
             this.autoLabel2.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.autoLabel2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.autoLabel2.Location = new System.Drawing.Point(48, 35);
+            this.autoLabel2.Location = new System.Drawing.Point(48, 39);
             this.autoLabel2.Name = "autoLabel2";
             this.autoLabel2.Size = new System.Drawing.Size(52, 15);
             this.autoLabel2.TabIndex = 9;
@@ -320,7 +325,7 @@ namespace InlineSkatesApp
             this.textBoxExtCustomerName.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.textBoxExtCustomerName.Location = new System.Drawing.Point(106, 3);
             this.textBoxExtCustomerName.Name = "textBoxExtCustomerName";
-            this.textBoxExtCustomerName.Size = new System.Drawing.Size(623, 23);
+            this.textBoxExtCustomerName.Size = new System.Drawing.Size(513, 23);
             this.textBoxExtCustomerName.TabIndex = 4;
             this.sfToolTip1.SetToolTip(this.textBoxExtCustomerName, "Enter customer\'s name");
             this.textBoxExtCustomerName.TextChanged += new System.EventHandler(this.textBoxCustomerName_TextChanged);
@@ -335,20 +340,46 @@ namespace InlineSkatesApp
             this.autoLabel1.TabIndex = 8;
             this.autoLabel1.Text = "Customer Name:";
             // 
+            // sfButtonGenerateInvoice
+            // 
+            this.sfButtonGenerateInvoice.AccessibleName = "Button";
+            this.sfButtonGenerateInvoice.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.sfButtonGenerateInvoice.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
+            this.sfButtonGenerateInvoice.Location = new System.Drawing.Point(625, 33);
+            this.sfButtonGenerateInvoice.Name = "sfButtonGenerateInvoice";
+            this.sfButtonGenerateInvoice.Size = new System.Drawing.Size(104, 28);
+            this.sfButtonGenerateInvoice.TabIndex = 17;
+            this.sfButtonGenerateInvoice.Text = "Generate Invoice";
+            this.sfToolTip1.SetToolTip(this.sfButtonGenerateInvoice, "Generate Invoice from the selected Customer");
+            this.sfButtonGenerateInvoice.Click += new System.EventHandler(this.sfButtonGenerateInvoice_Click);
+            // 
             // sfButtonCustomer
             // 
             this.sfButtonCustomer.AccessibleName = "Button";
-            this.sfButtonCustomer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.sfButtonCustomer.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tableLayoutPanel2.SetColumnSpan(this.sfButtonCustomer, 2);
             this.sfButtonCustomer.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
-            this.sfButtonCustomer.Location = new System.Drawing.Point(735, 16);
+            this.sfButtonCustomer.Location = new System.Drawing.Point(691, 3);
             this.sfButtonCustomer.Name = "sfButtonCustomer";
-            this.tableLayoutPanel2.SetRowSpan(this.sfButtonCustomer, 2);
-            this.sfButtonCustomer.Size = new System.Drawing.Size(120, 24);
+            this.sfButtonCustomer.Size = new System.Drawing.Size(97, 24);
             this.sfButtonCustomer.TabIndex = 3;
             this.sfButtonCustomer.Text = "Add Customer";
             this.sfToolTip1.SetToolTip(this.sfButtonCustomer, "Add a new customer with the entered information on the left ");
             this.sfButtonCustomer.UseVisualStyleBackColor = true;
             this.sfButtonCustomer.Click += new System.EventHandler(this.sfButtonAddCustomer_Click);
+            // 
+            // sfButtonOpenFolder
+            // 
+            this.sfButtonOpenFolder.AccessibleName = "Button";
+            this.sfButtonOpenFolder.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.sfButtonOpenFolder.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
+            this.sfButtonOpenFolder.Location = new System.Drawing.Point(735, 33);
+            this.sfButtonOpenFolder.Name = "sfButtonOpenFolder";
+            this.sfButtonOpenFolder.Size = new System.Drawing.Size(120, 28);
+            this.sfButtonOpenFolder.TabIndex = 18;
+            this.sfButtonOpenFolder.Text = "Open Invoice Folder";
+            this.sfToolTip1.SetToolTip(this.sfButtonOpenFolder, "Open folder with invoices");
+            this.sfButtonOpenFolder.Click += new System.EventHandler(this.sfButtonOpenFolder_Click);
             // 
             // tabPage2
             // 
@@ -415,7 +446,8 @@ namespace InlineSkatesApp
             this.sfDataGridProducts.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.sfDataGridProducts.Location = new System.Drawing.Point(3, 41);
             this.sfDataGridProducts.Name = "sfDataGridProducts";
-            this.sfDataGridProducts.SelectionMode = Syncfusion.WinForms.DataGrid.Enums.GridSelectionMode.Multiple;
+            this.sfDataGridProducts.NotifyEventsToParentDataGrid = true;
+            this.sfDataGridProducts.SelectionMode = Syncfusion.WinForms.DataGrid.Enums.GridSelectionMode.Extended;
             this.sfDataGridProducts.SerializationController = null;
             this.sfDataGridProducts.Size = new System.Drawing.Size(591, 291);
             this.sfDataGridProducts.TabIndex = 5;
@@ -559,7 +591,7 @@ namespace InlineSkatesApp
             // sfButtonProduct
             // 
             this.sfButtonProduct.AccessibleName = "Button";
-            this.sfButtonProduct.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.sfButtonProduct.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.sfButtonProduct.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
             this.sfButtonProduct.Location = new System.Drawing.Point(513, 17);
             this.sfButtonProduct.Name = "sfButtonProduct";
@@ -628,14 +660,15 @@ namespace InlineSkatesApp
             // 
             this.tableLayoutPanel6.ColumnCount = 1;
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 17F));
-            this.tableLayoutPanel6.Controls.Add(this.sfButtonOpenSettings, 0, 0);
+            this.tableLayoutPanel6.Controls.Add(this.sfButtonOpenSettings, 0, 1);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 19);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
-            this.tableLayoutPanel6.RowCount = 1;
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 218F));
+            this.tableLayoutPanel6.RowCount = 3;
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel6.Size = new System.Drawing.Size(278, 218);
             this.tableLayoutPanel6.TabIndex = 0;
             // 
@@ -649,13 +682,10 @@ namespace InlineSkatesApp
             this.sfButtonOpenSettings.Size = new System.Drawing.Size(113, 24);
             this.sfButtonOpenSettings.TabIndex = 0;
             this.sfButtonOpenSettings.Text = "Open App Settings";
-            this.sfToolTip1.SetToolTip(this.sfButtonOpenSettings, "Open application settings");
+            this.sfToolTip1.SetToolTip(this.sfButtonOpenSettings, "Open application settings; you can delete this folder if you want to get rid of a" +
+        "pplication settings");
             this.sfButtonOpenSettings.UseVisualStyleBackColor = true;
             this.sfButtonOpenSettings.Click += new System.EventHandler(this.sfButtonOpenSettings_Click);
-            // 
-            // sfToolTip1
-            // 
-            this.sfToolTip1.AutoPopDelay = 2000;
             // 
             // productsTableAdapter1
             // 
@@ -665,13 +695,13 @@ namespace InlineSkatesApp
             // 
             this.ordersTableAdapter1.ClearBeforeFill = true;
             // 
-            // invoiceTableAdapter1
-            // 
-            this.invoiceTableAdapter1.ClearBeforeFill = true;
-            // 
             // customersTableAdapter1
             // 
             this.customersTableAdapter1.ClearBeforeFill = true;
+            // 
+            // invoiceTableAdapter1
+            // 
+            this.invoiceTableAdapter1.ClearBeforeFill = true;
             // 
             // MainWindow
             // 
@@ -767,7 +797,9 @@ namespace InlineSkatesApp
         private Syncfusion.WinForms.Input.SfNumericTextBox sfNumericTextBoxProductPrice;
         private ProductsTableAdapter productsTableAdapter1;
         private OrdersTableAdapter ordersTableAdapter1;
-        private InvoiceTableAdapter invoiceTableAdapter1;
         private CustomersTableAdapter customersTableAdapter1;
+        private InvoiceTableAdapter invoiceTableAdapter1;
+        private Syncfusion.WinForms.Controls.SfButton sfButtonGenerateInvoice;
+        private Syncfusion.WinForms.Controls.SfButton sfButtonOpenFolder;
     }
 }

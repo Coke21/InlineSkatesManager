@@ -28,6 +28,17 @@ namespace InlineSkatesApp.Models
             }
         }
 
+        private int _orderId;
+        public int OrderId
+        {
+            get => _orderId;
+            set
+            {
+                _orderId = value;
+                OnPropertyChanged();
+            }
+        }
+
         private string _productName;
         public string ProductName
         {
@@ -50,8 +61,16 @@ namespace InlineSkatesApp.Models
             }
         }
 
-        //Invoice???
-
+        private int _invoiceId;
+        public int InvoiceId
+        {
+            get => _invoiceId;
+            set
+            {
+                _invoiceId = value;
+                OnPropertyChanged();
+            }
+        }
 
         private DateTime _purchaseDate;
         public DateTime PurchaseDate
