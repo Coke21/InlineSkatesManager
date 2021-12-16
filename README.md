@@ -18,6 +18,7 @@
 - .NET Framework 4.7.2
 - WinForms
 - Syncfusion WinForms (UI framework)
+- Microsoft SQL (Database has 4 tables (Customers, Invoice, Orders, Products), 13 procedures, 2 views)
 
 ### What Is This?
-InlineSkatesManager is a WinForms application which takes care of your business matters. It is a practise app in which you can add/remove/edit customers and your products.
+InlineSkatesManager is a WinForms application which takes care of your business matters. It is a practise app in which you can add/remove/edit customers and your products. The local database can be viewed in "InlineSkatesDB.mdf", the DataSet (DbMap.xsd) contains the relationships between tables, e.g. foreign keys.
