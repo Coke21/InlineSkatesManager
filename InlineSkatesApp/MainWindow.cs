@@ -62,6 +62,8 @@ namespace InlineSkatesApp
 
             //Customers Tab
             //DataGrid
+            CustomerItems.CollectionChanged += CustomerItems_CollectionChanged;
+
             sfDataGridCustomers.SearchController.SearchColor = Color.LightGreen;
 
             sfDataGridCustomers.RecordContextMenu = new ContextMenuStrip();
@@ -76,6 +78,7 @@ namespace InlineSkatesApp
             sfDataGridCustomers.Columns.Add(new GridDateTimeColumn() { MappingName = "PurchaseDate", HeaderText = "Purchase Date", Format = "dd/MM/yyyy HH:mm:ss" });
 
             sfDataGridCustomers.DataSource = CustomerItems;
+            CustomerItems_CollectionChanged(null, null);
 
             //Customer Name
             sfButtonCustomer.Enabled = !string.IsNullOrWhiteSpace(textBoxExtCustomerName.Text);
@@ -140,6 +143,11 @@ namespace InlineSkatesApp
         }
 
         public ObservableCollection<CustomerModel> CustomerItems { get; set; } = new ObservableCollection<CustomerModel>();
+
+        private void CustomerItems_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        {
+            sfButtonGenerateInvoice.Enabled = CustomerItems.Count != 0;
+        }
 
         private void textBoxExtSearchCustomers_TextChanged(object sender, EventArgs e) => sfDataGridCustomers.SearchController.Search(textBoxExtSearchCustomers.Text);
         private void checkBoxAdvCaseSensitiveCustomers_CheckStateChanged(object sender, EventArgs e) => sfDataGridCustomers.SearchController.AllowCaseSensitiveSearch = checkBoxAdvCaseSensitiveCustomers.Checked;
