@@ -22,4 +22,4 @@
 - Jot (to keep track of certain UI elements and save them on user's PC, e.g. Form resize)
 
 ### What Is This?
-InlineSkatesManager is a WinForms application which takes care of your business matters. It is a practise app in which you can add/remove/edit customers and your products. The local database can be viewed in "InlineSkatesDB.mdf", the DataSet (DbMap.xsd) contains the relationships between tables, e.g. foreign keys.
+InlineSkatesManager is a WinForms application which takes care of your business matters. It is a demo app in which you can add/remove/edit customers and your products. The local database can be viewed in "InlineSkatesDB.mdf", the DataSet (DbMap.xsd) contains the relationships between tables, e.g. foreign keys.
